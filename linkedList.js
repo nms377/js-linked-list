@@ -48,20 +48,38 @@ function linkedListGenerator(){
 	function get(numNode){ // parameter will search for a specifc node in the list based on index
 		var counter = 0; // initializes index to start at the head, which is 0
 		curNode = head;
-			while (curNode/*.next*/ !== null){
-				if (counter !== numNode){
-					curNode = curNode.next;
-					counter++;
+			while (curNode !== null){		//runs each node in the linked list
+				if (counter !== numNode){	//compares value of counter to value of numNode (both numbers)
+					curNode = curNode.next;	//sets var currNode to the the next, which gives you next node
+					counter++;							//increases the value of counter by 1
 				}else{
-					return curNode;
+					return curNode;					//once the numNode and counter match it'll return the node
 				}
 			}
-			return false;
+			return false;								//if no node index exists, it will return false
 		}
 
-	function remove(){
+	function remove(num){
+		var counter = 0; // initializes index to start at the head, which is 0
+		var curNode = head;
 
-	}
+		//create an if statement if num = index 0 then head = the next node
+		if (num === 0){
+			head = curNode.next;
+		}
+			while (curNode !== null){		//runs each node in the linked list
+				if (counter !== num){	//compares value of counter to value of numNode (both numbers)
+					curNode = curNode.next;	//sets var currNode to the the next, which gives you next node
+					counter++;							//increases the value of counter by 1
+				}else{
+					//can't have negative check if we're removing head, kill head and move to the next node
+					var prevNode = get(num-1);	//gets the previous node using get()
+					prevNode.next = curNode.next;
+					return;
+				}
+			}
+			return false;								//if no node index exists, it will return false
+		}
 
 	function insert(){
 
