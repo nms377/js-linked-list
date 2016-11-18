@@ -7,7 +7,7 @@ function linkedListGenerator(){
 
 	var head = null;
 
-	function getHead(){
+	function getHead(){		//curNode is a pointer for head, which is in a local scope; head stays same
 		return head;
 	}
 
@@ -45,10 +45,35 @@ function linkedListGenerator(){
 			return newNode;
 	}
 
+	function get(numNode){ // parameter will search for a specifc node in the list based on index
+		var counter = 0; // initializes index to start at the head, which is 0
+		curNode = head;
+			while (curNode/*.next*/ !== null){
+				if (counter !== numNode){
+					curNode = curNode.next;
+					counter++;
+				}else{
+					return curNode;
+				}
+			}
+			return false;
+		}
+
+	function remove(){
+
+	}
+
+	function insert(){
+
+	}
+
 return{
 	getHead: getHead,
 	getTail: getTail,
 	add: add,
+	get: get,
+	remove: remove,
+	insert: insert,
 	};
 }
 
