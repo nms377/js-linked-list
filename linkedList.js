@@ -81,7 +81,33 @@ function linkedListGenerator(){
 			return false;								//if no node index exists, it will return false
 		}
 
-	function insert(){
+	function insert(value, num){
+
+		var counter = 0; // initializes index to start at the head, which is 0
+		var curNode = head;
+		var newNode = {
+			value: value,
+			next: null	//null is undefined until we can assign it the node we are shifting
+		};
+
+		//create an if statement if num = index 0 then head = the next node
+		if (num === 0){
+			head = newNode; //had head set to newNode.next; once I changed it to newNode it passed!
+		}
+			while (curNode !== null){		//runs each node in the linked list until it reaches the tail
+				if (counter !== num){	//compares value of counter to value of numNode (both numbers)
+					curNode = curNode.next;	//sets var currNode to the the next, which gives you next node
+					counter++;							//increases the value of counter by 1
+				}else{
+					var prevNode = get(num-1);
+					prevNode.next = newNode; //changes the value of the previous node next value to newNode
+					newNode.next = curNode; //assigns next value of newNode to curNode
+					return;
+					//need to push the current node into the next index over as well as other subsequent index
+
+					}
+			}
+			return false;								//if no node index exists, it will return false
 
 	}
 
