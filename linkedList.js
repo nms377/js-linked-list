@@ -26,11 +26,13 @@ function linkedListGenerator(){
 	}
 
 //Creates a new node object after appending new node to the list
-	function add(){
-		var newNode = {
-			value: null,	//put null because I can't remember what goes here
-			next: null		//put null because we don't know where we're appending the node
-		};
+	var curNode = head;
+
+	if (curNode!== null){
+		curNode = curNode.next;
+	}
+
+		return curNode;
 
 	//	[ head ] -> [ index 1 ] -> [ index 2 ] -> [ tail ]
 	//	[ newNode ] want to append to the list somewhere
